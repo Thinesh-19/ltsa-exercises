@@ -1,0 +1,21 @@
+1.
+Make an FSP model, where there is a bank account and a customer. The
+account starts from 0 euros/whatever currency. The customer can either
+save 1 euro or withdraw 1 euro from the account. No need to care if
+the account goes below 0. Do not model anything not needed (like
+the reads and writes, that come into the picture in the next assignment).
+
+
+2. 
+Now change the model in such a way that there are two customers,
+and the account just does reads and writes like the VAR at the
+Ornamental Garden. Check that your model allows incorrect computation.
+
+
+3. Add locks to the model, like in the ornamental garden, to
+disallow incorrect behaviour.
+
+
+4. Add timeouts to the model. If a process tries to get a lock
+and cannot do it, it can also timeout and start over.
+

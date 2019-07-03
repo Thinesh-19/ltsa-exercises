@@ -1,0 +1,7 @@
+CUSTOMER = (wait -> CUSTOMER | service -> CUSTOMER).
+SHOPKEEPER = (service -> SHOPKEEPER).
+||SHOP = (p[1..3]:CUSTOMER || {p[1..3]}::SHOPKEEPER).
+
+||FAIR_SHOP = SHOP << { p[1].{wait,service} }.
+
+progress FAIR_SERVICE = { p[3].service }

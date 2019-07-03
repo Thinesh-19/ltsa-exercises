@@ -1,0 +1,19 @@
+const N = 4
+range T = 0..5
+MACHINE = MACHINE[0],
+MACHINE[m:T] =
+ ( when(m < N) one_euro  -> MACHINE[m+1]
+ | when(m < N) two_euro  -> MACHINE[m+2]
+ | when(m > N) return[1] -> MACHINE[m-1]
+ | coffee_button -> TRY_COFFEE[m] ),
+TRY_COFFEE[m:T] =
+ ( when(m >= 1) get_coffee   -> MACHINE[m-1]
+ | when(m >= 2) get_espresso -> MACHINE[m-2]
+ | when(m >= 3) get_latte    -> MACHINE[m-3]
+ | when(m <= 0) not_enough_money_message -> MACHINE[m] ).
+
+USER =
+ ( one_euro -> USER
+ | two_euro -> USER
+ | coffee_button -> USER ).
+ 

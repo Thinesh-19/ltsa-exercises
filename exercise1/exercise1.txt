@@ -1,0 +1,46 @@
+Make the following models. Use the LTSA tool to try out your models.
+
+1. Give the FSP process description of the following
+LTS graph
+
+   tick     tick       tick
+0 ----->  1 ------> 2 ------> 3
+
+
+2. Write the FSP process of a coffee machine, where
+you can either enter a one euro coin and request coffee
+once, or enter a two euro coin, and request coffee twice.
+After that the machine is ready to start again.
+Give 2 different prefixes (starts) of example traces of 
+length 4.
+
+
+3. Write the FSP process of a normal dice. Once the dice
+has been thrown, it gives a value from 1 to 6. Then it can
+be thrown again.
+
+
+4. Write the FSP process of a coffee machine, which
+sells coffee (1 e), espresso (2 e), and latte (3 e).
+It accepts coins of 1 e and 2 e up to a value of 4 e.
+If the value would go over 4 e, it returns the coin.
+Once there is money in the machine, it is possible to
+get a drink, in which case the money returns the excess money.
+(If the money is not enough for a drink requested, then "nothing"
+happens - no drink is produced and no money is returned).
+
+
+5. Same as 4, but the excess money is not returned - instead
+the machine can be used to get more drinks or more money
+can be insterted.
+
+
+6. In addition to 5, define a customer process, which randomly
+either
+- inserts a 1 e coin
+- inserts a 2 e coin
+- tries to get a coffee
+- tries to get an espresso
+- tries to get a latte.
+Make a parallel composition of the customer and the coffee
+machine of exercise 5.

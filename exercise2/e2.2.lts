@@ -1,0 +1,21 @@
+const N = 4
+range T = 0..N
+set VarAlpha = {value.{read[T],write[T]}}
+
+ACCOUNT = ACCOUNT[0],
+ACCOUNT[m:T] = 
+ ( read[m] -> ACCOUNT[m]
+ | write[v:T] -> ACCOUNT[v] ).
+
+CUSTOMER = 
+ ( withdraw_1e -> WITHDRAW
+ | deposit_1e  -> DEPOSIT ),
+WITHDRAW = (value.read[x:T] -> value.write[x-1] -> CUSTOMER),
+DEPOSIT  = (value.read[x:T] -> value.write[x+1] -> CUSTOMER) + VarAlpha.
+
+TOTAL = (value.read[T] -> TOTAL) + {value.write[T]}.
+
+||TWO_CUSTOMERS = 
+  ( a:CUSTOMER || b:CUSTOMER || total:TOTAL
+ || {a,b,total}.value::ACCOUNT ).
+ 

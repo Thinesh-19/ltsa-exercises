@@ -1,0 +1,21 @@
+const N = 4
+range Q = 0..N
+range C = 0..N-1
+set VarPick0 = {pick[0]}
+
+QUEUE = QUEUE[1],
+QUEUE[q:Q] = (pick[q] -> QUEUE[q%N+1]) \ VarPick0.
+
+CURRENTNUMBER = CURRENTNUMBER[1],
+CURRENTNUMBER[c:Q] =
+ ( [C].checkservice[c] -> CURRENTNUMBER[c]
+ | next -> CURRENTNUMBER[c%N+1] ).
+
+SHOPKEEPER = ([C].service -> next -> SHOPKEEPER).
+CUSTOMER = CUSTOMER[0],
+CUSTOMER[i:Q] =
+ ( when(i==0) pick[x:Q] -> CUSTOMER[x]
+ | checkservice[i] -> service -> CUSTOMER[0] )
+ \ VarPick0.
+
+||BUY = (SHOPKEEPER || CURRENTNUMBER || [C]:CUSTOMER || {[C]}::QUEUE).

@@ -1,0 +1,25 @@
+3.1 Continuing from Exercise 2.2, make a safety property
+that states that the reading the account amount should
+be followed by a write by the same user. Test your property
+with the solution of Exercise 2.2. and Exercise 2.3.
+
+
+3.2. Consider the following shop:
+CUSTOMER=(wait->CUSTOMER|service->CUSTOMER).
+SHOPKEEPER=(service->SHOPKEEPER).
+||SHOP=(p[1..3]:CUSTOMER||{p[1..3]}::SHOPKEEPER).
+Using priority and progress statement, show that the
+shop is not necessarily fair in the sense that everyone
+would eventually get service.
+
+
+3.3. Add queue numbers to the shop in such a way that
+each customer takes a queue number, then waits for her number, 
+and then buys, and then goes on to take a new number to buy again. 
+Check progress.
+
+
+3.4. Change the book's fair single line bridge in such a way that
+it always allows 3 cars of each color to cross before it changes
+the turn.
+

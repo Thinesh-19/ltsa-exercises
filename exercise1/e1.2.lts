@@ -1,0 +1,5 @@
+READY =
+ ( one_euro -> RUN_ONCE
+ | two_euro -> RUN_TWICE ),
+RUN_ONCE = (coffee -> READY),
+RUN_TWICE = (coffee -> coffee -> READY).

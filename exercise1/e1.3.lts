@@ -1,0 +1,10 @@
+range NUMBERS = 1..6
+
+DICE =
+ ( throw -> DECIDE[1]
+ | throw -> DECIDE[2]
+ | throw -> DECIDE[3]
+ | throw -> DECIDE[4]
+ | throw -> DECIDE[5]
+ | throw -> DECIDE[6] ),
+DECIDE[v:NUMBERS] = (again -> DICE).

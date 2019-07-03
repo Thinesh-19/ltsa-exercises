@@ -1,0 +1,9 @@
+const N=4
+range T=0..N
+
+ACCOUNT = ACCOUNT[0],
+ACCOUNT[m:T] =
+ ( withdraw_1e -> out[m-1] -> ACCOUNT[m-1]
+ | deposit_1e  -> out[m+1] -> ACCOUNT[m+1] ).
+
+CUSTOMER = (withdraw_1e -> CUSTOMER | deposit_1e -> CUSTOMER).
